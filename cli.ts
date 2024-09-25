@@ -11,7 +11,7 @@ import { Command } from "commander";
   program
     .name("csd-scan")
     .usage("-u <url> -e <url>")
-    .description("CLI tool to check if a given web-server endpoint have a client-side desync vulnerability.")
+    .description("CLI tool to check if a web-server endpoint have a possible client-side desync vulnerability.")
     .option("-u, --url <url>", "Possible vulnerable endpoint URL.")
     .option("-e, --error-url <url>", "Url used for inject request in the first request body.\nA GET request to this url MUST return a different status code than the first ulr.")
     .on("--help", () => {
@@ -55,7 +55,9 @@ import { Command } from "commander";
         const response = await fetch(url);
 
         if (response.status === errorUrlResponse.status) {
-          console.log(`VULNERABLE: ${url.host} ingore request body at ${url.pathname + url.search} path`);
+          console.log(`VULNERABLE: ${url.host} ingore request Content-Length at '${url.pathname + url.search}' path `);
+        }else{
+          console.log("Nothig found ...")
         }
       } catch (error) {
         console.error("Error fetching the URL:", error);
