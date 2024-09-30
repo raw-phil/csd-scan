@@ -78,4 +78,4 @@ Examples:
 - URL passed with `-u` or `--url` flag, is the url that indicate where scan for the vulnerability
 
 - ERROR_URL passed with `-e` or `--error-url`, is the url used to inject the second request in the body of the first.
-A GET request to this url MUST return an error status code ( from 400 to 599 ). This is necessary to determine if the body of the first request affects the response of the second request, which should return a different status code than the second request to the root path.
+A GET request to this url MUST return an error status code ( from 400 to 599 ). This is necessary to determine if the body of the first request affects the response of the second request, which should not return an error code.
