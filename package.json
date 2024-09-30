@@ -1,7 +1,11 @@
 {
   "name": "csd-scan",
   "type": "module",
+  "bin": {
+    "csd-scan": "./dist/cli.js"
+  },
   "scripts": {
+    "build": "tsc",
     "start": "tsc && node ./dist/cli.js"
   },
   "keywords": [],
@@ -10,8 +14,8 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^22.7.0",
-    "typescript": "^5.6.2",
-    "@types/node-fetch": "^2.6.11"
+    "@types/node-fetch": "^2.6.11",
+    "typescript": "^5.6.2"
   },
   "dependencies": {
     "commander": "^12.1.0",
